@@ -9,7 +9,6 @@ public class Cannon : MonoBehaviour
     [SerializeField] float startTimeBetween;
     float timeBetween;
 
-
     void Start()
     {
         timeBetween = startTimeBetween;
