@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShapeChanger : MonoBehaviour
+public class DeathAndShapeChanger : MonoBehaviour
 {
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,6 +17,14 @@ public class ShapeChanger : MonoBehaviour
         {
             if (gameObject.transform.localScale.x <= 0.08) return;
             gameObject.transform.localScale -= new Vector3(0.5f, 0, 0);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            FindObjectOfType<SceneLoader>().RestartScene();
         }
     }
 }

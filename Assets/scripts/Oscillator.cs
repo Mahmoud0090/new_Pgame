@@ -12,7 +12,7 @@ public class Oscillator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        startingPosition = gameObject.transform.position;
     }
     // Update is called once per frame
     void Update()

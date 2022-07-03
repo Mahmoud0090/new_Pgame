@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ShapeChanger
   - ShapeSlimmer
+  - Enemy
   layers:
   - Default
   - TransparentFX

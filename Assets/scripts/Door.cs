@@ -15,7 +15,7 @@ public class Door : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player" && coinNum == 0)
         {
-            Debug.Log("playerrrrrrrrrrrrrrrrrrr");
+            FindObjectOfType<SceneLoader>().NextScene();
         }
     }
 
