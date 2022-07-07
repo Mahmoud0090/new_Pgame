@@ -2435,11 +2435,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6286551190426409496, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
       propertyPath: reverseMove
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6286551190426409496, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
       propertyPath: jumpingControl
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}

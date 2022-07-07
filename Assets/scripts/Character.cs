@@ -53,7 +53,6 @@ public class Character : MonoBehaviour
         {
             transform.Translate(new Vector2(1, 0) * -HorizontalMove * moveSpeed * Time.deltaTime);
         }
-        
     }
 
     private void NormalJumping()
@@ -75,9 +74,12 @@ public class Character : MonoBehaviour
 
     private void OutOfControlJumping()
     {
-        if (timeBetweenJumping <= 0 && col.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (timeBetweenJumping <= 0)
         {
-            rd.velocity = Vector2.up * jumpForce * selfJumpingAddForce;
+            if (col.IsTouchingLayers(LayerMask.GetMask("Ground")))
+            {
+                rd.velocity = Vector2.up * jumpForce * selfJumpingAddForce;
+            } 
             timeBetweenJumping = startTimeBetweenJumping;
         }
         else
