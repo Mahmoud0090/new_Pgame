@@ -19,11 +19,13 @@ public class Character : MonoBehaviour
 
     private int jumpCounter = 0;
 
-    BoxCollider2D col;
+    CircleCollider2D col;
+    Animator animator;
     void Start()
     {
         rd = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
+        col = GetComponent<CircleCollider2D>();
+        animator = GetComponent<Animator>();
         timeBetweenJumping = startTimeBetweenselfJumping;
     }
 
@@ -39,20 +41,34 @@ public class Character : MonoBehaviour
             OutOfControlJumping();
         }
         Move();
+        FlipSprite();
+
     }
 
     private void Move()
     {
         float HorizontalMove = Input.GetAxisRaw("Horizontal");
+        bool hazHorizontalSpeed = Mathf.Abs(rd.velocity.x) > Mathf.Epsilon;
 
         if (!reverseMove)
         {
-            transform.Translate(new Vector2(1, 0) * HorizontalMove * moveSpeed * Time.deltaTime);
+            rd.velocity = new Vector2(HorizontalMove * moveSpeed, rd.velocity.y);
+            animator.SetBool("isRunning", hazHorizontalSpeed);
         }
 
         else
         {
-            transform.Translate(new Vector2(1, 0) * -HorizontalMove * moveSpeed * Time.deltaTime);
+            rd.velocity = new Vector2(-HorizontalMove * moveSpeed, rd.velocity.y);
+            animator.SetBool("isRunning", hazHorizontalSpeed);
+        }
+    }
+
+    void FlipSprite()
+    {
+        bool hazHorizontalSpeed = Mathf.Abs(rd.velocity.x) > Mathf.Epsilon;
+        if (hazHorizontalSpeed)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(rd.velocity.x), 1f);
         }
     }
 
@@ -63,10 +79,9 @@ public class Character : MonoBehaviour
             if (col.IsTouchingLayers(LayerMask.GetMask("Ground")))
             {
                 rd.velocity = Vector2.up * jumpForce;
-                
                 jumpCounter = 1;
-
             }
+
             if(!col.IsTouchingLayers(LayerMask.GetMask("Ground")) && jumpCounter < numOfMultipleJumps)
             {
                 rd.velocity = Vector2.up * jumpForce;
@@ -82,6 +97,7 @@ public class Character : MonoBehaviour
             if (col.IsTouchingLayers(LayerMask.GetMask("Ground")))
             {
                 rd.velocity = Vector2.up * jumpForce * selfJumpingAddForce;
+                animator.SetBool("isJumping", true);
             } 
             timeBetweenJumping = startTimeBetweenselfJumping;
         }

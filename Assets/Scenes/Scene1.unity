@@ -2148,6 +2148,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461827529e7d35842b79126397134ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1834849214
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834849207}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 97f11c8c12d6ce54b98e27bf8488b1e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1905802621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 764854833545190728, guid: a4d1b430f65e2bb43b71b0f1cebda632, type: 3}
@@ -2610,6 +2629,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1834849210, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6167946
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834849210, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6167922
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834849210, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.012773514
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834849210, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.03832054
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834849210, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834849210, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.74
+      objectReference: {fileID: 0}
     - target: {fileID: 6286551190426409477, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2619,16 +2662,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6286551190426409478, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286551190426409478, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3565891
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6286551190426409478, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.34
+      value: -38.1484
       objectReference: {fileID: 0}
     - target: {fileID: 6286551190426409478, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.44
+      value: -2.5805
       objectReference: {fileID: 0}
     - target: {fileID: 6286551190426409478, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2661,6 +2708,22 @@ PrefabInstance:
     - target: {fileID: 6286551190426409478, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286551190426409479, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2976041059057689810, guid: 7271c00af7c561f4da251fcfe62912d4, type: 3}
+    - target: {fileID: 6286551190426409479, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286551190426409479, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286551190426409479, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6286551190426409496, guid: 3526057c977e03a4a83dead6cea1d790, type: 3}
       propertyPath: reverseMove
