@@ -9,10 +9,11 @@ public class Character : MonoBehaviour
     Rigidbody2D rd;
     [SerializeField] float jumpForce = 100f;
     [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float startTimeBetweenJumping = 2f;
+    [SerializeField] float startTimeBetweenselfJumping = 2f;
     [SerializeField] bool reverseMove = false;
     [SerializeField] bool jumpingControl = true;
     [SerializeField] float selfJumpingAddForce = 2f;
+    [SerializeField] int numOfMultipleJumps = 2;
 
     private float timeBetweenJumping;
 
@@ -23,7 +24,7 @@ public class Character : MonoBehaviour
     {
         rd = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
-        timeBetweenJumping = startTimeBetweenJumping;
+        timeBetweenJumping = startTimeBetweenselfJumping;
     }
 
     // Update is called once per frame
@@ -59,13 +60,15 @@ public class Character : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (col.IsTouchingLayers(LayerMask.GetMask("Ground")) ||
-                (!col.IsTouchingLayers(LayerMask.GetMask("Ground")) && jumpCounter < 2))
+            if (col.IsTouchingLayers(LayerMask.GetMask("Ground")))
             {
-                if (jumpCounter > 1)
-                {
-                    jumpCounter = 0;
-                }
+                rd.velocity = Vector2.up * jumpForce;
+                
+                jumpCounter = 1;
+
+            }
+            if(!col.IsTouchingLayers(LayerMask.GetMask("Ground")) && jumpCounter < numOfMultipleJumps)
+            {
                 rd.velocity = Vector2.up * jumpForce;
                 jumpCounter++;
             }
@@ -80,7 +83,7 @@ public class Character : MonoBehaviour
             {
                 rd.velocity = Vector2.up * jumpForce * selfJumpingAddForce;
             } 
-            timeBetweenJumping = startTimeBetweenJumping;
+            timeBetweenJumping = startTimeBetweenselfJumping;
         }
         else
         {
