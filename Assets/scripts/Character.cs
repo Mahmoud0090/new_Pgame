@@ -15,6 +15,14 @@ public class Character : MonoBehaviour
     [SerializeField] float selfJumpingAddForce = 2f;
     [SerializeField] int numOfMultipleJumps = 2;
 
+    [SerializeField] private TrailRenderer tr;
+
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower = 24f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 1f;
+
     private float timeBetweenJumping;
 
     private int jumpCounter = 0;
@@ -32,6 +40,11 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDashing)
+        {
+            return;
+        }
+
         if (jumpingControl)
         {
             NormalJumping();
@@ -41,8 +54,13 @@ public class Character : MonoBehaviour
             OutOfControlJumping();
         }
         Move();
-        FlipSprite();
 
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+
+        FlipSprite();
     }
 
     private void Move()
@@ -105,5 +123,22 @@ public class Character : MonoBehaviour
         {
             timeBetweenJumping -= Time.deltaTime;
         }
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rd.gravityScale;
+        rd.gravityScale = 0f;
+        rd.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        rd.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+
     }
 }
