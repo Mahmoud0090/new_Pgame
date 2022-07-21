@@ -10,5 +10,14 @@ public class Death : MonoBehaviour
         {
             FindObjectOfType<SceneLoader>().RestartScene();
         }
+
+        else if(collision.gameObject.tag == "LiveEnemy")
+        {
+            bool dashing = GetComponent<Character>().ISdashaing();
+            if (!dashing)
+            {
+                FindObjectOfType<SceneLoader>().RestartScene();
+            }
+        }
     }
 }

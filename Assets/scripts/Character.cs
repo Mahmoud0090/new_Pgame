@@ -18,7 +18,7 @@ public class Character : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
 
     private bool canDash = true;
-    private bool isDashing;
+    private bool isDashing = false;
     private float dashingPower = 24f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
@@ -35,6 +35,11 @@ public class Character : MonoBehaviour
         col = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
         timeBetweenJumping = startTimeBetweenselfJumping;
+    }
+
+    public bool ISdashaing()
+    {
+        return isDashing;
     }
 
     // Update is called once per frame

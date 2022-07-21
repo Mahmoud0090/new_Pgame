@@ -10,7 +10,6 @@ public class EnemyMovement : MonoBehaviour
     {
         rd = GetComponent<Rigidbody2D>();
     }
-
     
     void Update()
     {
