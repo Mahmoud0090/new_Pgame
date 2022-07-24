@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Chest : MonoBehaviour
 {
     int coinNum;
 
@@ -17,6 +17,11 @@ public class Door : MonoBehaviour
         {
             FindObjectOfType<SceneLoader>().NextScene();
         }
+    }
+
+    public int GetCoinNum()
+    {
+        return coinNum;
     }
 
     private void Update()

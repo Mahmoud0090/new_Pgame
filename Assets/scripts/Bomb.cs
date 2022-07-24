@@ -21,8 +21,8 @@ public class Bomb : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        Destroy(gameObject);
     }
 }

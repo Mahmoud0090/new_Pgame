@@ -21,7 +21,7 @@ public class Character : MonoBehaviour
     private bool isDashing = false;
     private float dashingPower = 24f;
     private float dashingTime = 0.2f;
-    private float dashingCooldown = 1f;
+    private float dashingCooldown = 0.5f;
 
     private float timeBetweenJumping;
 
